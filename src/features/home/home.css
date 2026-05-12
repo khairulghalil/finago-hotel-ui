@@ -1,0 +1,100 @@
+/* OVERVIEW */
+.overview {
+  background-color: #fff;
+  height: 100vh;
+}
+.overview .ow-left {
+  padding: 0px 10px 0px 150px !important;
+}
+.overview h1 {
+  font-size: 60px;
+  letter-spacing: 2px;
+}
+.overview p {
+  color: grey;
+  font-size: 20px;
+}
+.overview .btn {
+  border-radius: 50px;
+  padding: 10px 20px;
+  font-size: 20px;
+}
+.overview img {
+  width: 100%;
+}
+.overview .counter h2 {
+  font-size: 40px;
+  color: var(--primary-color) !important;
+}
+
+/* ABOUT */
+.about {
+  background-color: #f1f6f5;
+}
+.about h1 {
+  font-size: 40px;
+  letter-spacing: 1px;
+}
+.about h4 {
+  color: var(--primary-color) !important;
+  letter-spacing: 1px;
+  font-size: 23px;
+}
+.about img {
+  width: 100% !important;
+}
+.about .counter h2 {
+  font-size: 40px;
+  color: var(--primary-color) !important;
+}
+.about .counter p {
+  color: grey;
+  font-size: 15px;
+}
+.about .about-left {
+  padding: 0px 80px 0px 10px !important;
+}
+
+/* AMENITIES CSS */
+.amenities {
+  background-color: #ffffff;
+}
+.amenities h5 {
+  font-size: 23px;
+  letter-spacing: 1px;
+}
+.amenities i,
+.amenities span {
+  font-size: 15px;
+  color: var(--primary-color);
+}
+.amenities .card {
+  border: none;
+  border-radius: 25px !important;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
+  cursor: pointer;
+}
+.amenities .card-img-top {
+  border-top-left-radius: 25px !important;
+  border-top-right-radius: 25px !important;
+}
+.amenities .card:hover {
+  transform: translateY(-20px);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+}
+
+/* ABSTRACT CSS */
+.abstract {
+  background-color: #f1f6f5;
+}
+.abstract p {
+  color: var(--primary-color) !important;
+  font-size: 18px;
+}
+.abstract img {
+  width: 100% !important;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.326);
+}
