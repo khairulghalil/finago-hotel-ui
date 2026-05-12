@@ -50,3 +50,14 @@
   color: var(--bs-secondary-color) !important;
   font-weight: 400 !important;
 }
+.room .booking-form {
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+  height: 392px;
+}
+.room .rounded-pill {
+  background-color: color-mix(in srgb, var(--primary-color), white 90%);
+  color: var(--primary-color);
+  border: 1px solid var(--primary-color);
+  letter-spacing: 0.5px;
+}

@@ -1,4 +1,5 @@
-import { setHeaderTitle } from "../roomSlice";
+import { setHeaderTitle, setCurrentStep, setToBook } from "../roomSlice";
+import { initialToBookState } from "../constants";
 import { useAppDispatch } from "../../../store/hooks";
 
 interface AvailableRoomCardProps {
@@ -23,6 +24,20 @@ function AvailableRoomCard({
   price,
 }: AvailableRoomCardProps) {
   const dispatch = useAppDispatch();
+
+  const handleBookNow = () => {
+    dispatch(setHeaderTitle("Booking"));
+    dispatch(setCurrentStep("Booking Details"));
+    dispatch(
+      setToBook({
+        ...initialToBookState,
+        id,
+        title,
+        roomNumber,
+        price,
+      }),
+    );
+  };
 
   return (
     <>
@@ -60,7 +75,7 @@ function AvailableRoomCard({
                 </h3>
                 <button
                   className="btn btn-primary ms-auto px-4"
-                  onClick={() => dispatch(setHeaderTitle("Booking"))}
+                  onClick={() => handleBookNow()}
                 >
                   Book Now
                 </button>

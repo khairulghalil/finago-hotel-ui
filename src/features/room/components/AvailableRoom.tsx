@@ -1,12 +1,16 @@
 import AvailableRoomCard from "./AvailableRoomCard";
 import { useAppSelector } from "../../../store/hooks";
 
-interface AvailableRoomProps {}
+interface AvailableRoomProps {
+  checkInDate?: string;
+  checkOutDate?: string;
+}
 
-function AvailableRoom({}: AvailableRoomProps) {
+function AvailableRoom({ checkInDate, checkOutDate }: AvailableRoomProps) {
+  console.log(
+    `AvailableRoom rendered with checkInDate: ${checkInDate} and checkOutDate: ${checkOutDate}`,
+  );
   const data = useAppSelector((state) => state.room.data);
-  console.log(data);
-
   return (
     <>
       <div className="row row-cols-3 g-4 justify-content-center mb-5 text-center">

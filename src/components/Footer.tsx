@@ -3,7 +3,7 @@ interface FooterProps {}
 function Footer({}: FooterProps) {
   return (
     <>
-      <footer data-aos="fade-up" className="footer">
+      <footer className="footer">
         <div className="container pb-4">
           <div className="row pt-5 mb-4">
             <div className="col-4 d-flex flex-column align-items-start justify-content-center">

@@ -136,11 +136,11 @@ header .navbar .nav-item .active:hover {
   margin-right: 12px;
 }
 
-.step-icon {
+.step-icon.active {
   width: 50px;
   height: 50px;
   border-radius: 50%;
-  background: #f7c347;
+  background: #6df970;
   color: #000;
   display: flex;
   align-items: center;
@@ -149,12 +149,28 @@ header .navbar .nav-item .active:hover {
   z-index: 1;
   box-shadow:
     0 0 0 5px rgba(254, 254, 254, 0.919),
-    0 0 0 10px rgba(253, 209, 13, 0.51);
+    0 0 0 10px rgb(123, 250, 144);
+}
+
+.step-icon {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: #dfdfdf;
+  color: #000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+  z-index: 1;
+  box-shadow:
+    0 0 0 5px rgba(254, 254, 254, 0.919),
+    0 0 0 10px rgb(227, 227, 227);
 }
 .step-line {
-  width: 2px;
+  width: 3px;
   flex: 1;
-  background: #f7c347;
+  background: #cecec380;
   margin-top: 4px;
 }
 
@@ -164,13 +180,8 @@ header .navbar .nav-item .active:hover {
 }
 
 .step-title {
-  color: #fff;
-  font-size: 20px;
-}
-
-.step-desc {
-  font-size: 17px;
-  color: grey;
+  color: #000;
+  font-size: 18px;
 }
 
 /* FOOTER */

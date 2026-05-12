@@ -1,23 +1,17 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-
-export interface RoomData {
-  id: string;
-  img: string;
-  title: string;
-  description: string;
-  size: string;
-  bedType: string;
-  roomNumber: string;
-  price: number;
-}
+import type { RoomData, ToBookRoomData } from "./types";
+import { initialToBookState } from "./constants";
 
 interface RoomState {
   headerTitle: string;
+  currentStep: string;
   data: RoomData[];
+  toBook: ToBookRoomData;
 }
 
 const initialState: RoomState = {
   headerTitle: "Room",
+  currentStep: "Booking Details",
   data: [
     {
       id: "382nRb",
@@ -82,6 +76,7 @@ const initialState: RoomState = {
       price: 350,
     },
   ],
+  toBook: initialToBookState,
 };
 
 const roomSlice = createSlice({
@@ -94,8 +89,15 @@ const roomSlice = createSlice({
     setData: (state, action: PayloadAction<RoomData[] | null>) => {
       state.data = action.payload || [];
     },
+    setCurrentStep: (state, action: PayloadAction<string>) => {
+      state.currentStep = action.payload;
+    },
+    setToBook: (state, action: PayloadAction<ToBookRoomData>) => {
+      state.toBook = action.payload;
+    },
   },
 });
 
-export const { setHeaderTitle, setData } = roomSlice.actions;
+export const { setHeaderTitle, setData, setCurrentStep, setToBook } =
+  roomSlice.actions;
 export default roomSlice.reducer;

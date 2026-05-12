@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { setHeaderTitle } from "./roomSlice";
+import { setHeaderTitle, setCurrentStep } from "./roomSlice";
 import { useAppDispatch, useAppSelector } from "../../store/hooks";
 import RoomSection from "./components/RoomSection";
 import BookingSection from "./components/BookingSection";
@@ -12,6 +12,7 @@ function Room() {
   useEffect(() => {
     window.scrollTo(0, 0);
     dispatch(setHeaderTitle("Room"));
+    dispatch(setCurrentStep("Booking Details"));
   }, []);
 
   return (

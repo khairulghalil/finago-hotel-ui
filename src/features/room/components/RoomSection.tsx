@@ -1,5 +1,6 @@
 import AvailableRoom from "./AvailableRoom";
 import { useNavigate } from "react-router-dom";
+
 interface RoomSectionProps {}
 
 function RoomSection({}: RoomSectionProps) {
@@ -13,14 +14,14 @@ function RoomSection({}: RoomSectionProps) {
       <div className="row filter-card p-3 mb-5 mx-3">
         <div className="col-md-4">
           <div className="mb-3">
-            <label htmlFor="dateRangeInput" className="form-label fw-boldest">
-              Date Range
+            <label htmlFor="categoryInput" className="form-label fw-boldest">
+              Category
             </label>
             <input
               type="text"
               className="form-control"
-              id="dateRangeInput"
-              placeholder="Select date range"
+              id="categoryInput"
+              placeholder="Select category"
             />
           </div>
         </div>
