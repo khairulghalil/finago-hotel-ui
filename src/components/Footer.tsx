@@ -15,7 +15,14 @@ function Footer({}: FooterProps) {
                 />
               </div>
             </div>
-            <div className="col-8 text-start px-4">
+            <div className="col-8 text-end px-4">
+              <div className="d-flex gap-4 align-items-center mb-5">
+                <a href="#home">Home</a>
+                <a href="#about">About</a>
+                <a href="#rooms">Rooms</a>
+                <a href="#amenities">Amenities</a>
+                <a href="#contact">Contact</a>
+              </div>
               <p className="mb-3 text-start">
                 Exclusive booking platform for luxury stays in Malaysia. Easy,
                 secure, and guarantees guest privacy. Book your dream room with

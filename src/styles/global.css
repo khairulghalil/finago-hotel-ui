@@ -53,6 +53,8 @@ header .navbar .nav-link {
   margin: 0px 12px;
   text-align: center;
   cursor: pointer !important;
+  position: relative;
+  transition: color 0.3s ease;
 }
 header .navbar-toggler {
   border: 1px solid #c7c6c6 !important;
@@ -66,7 +68,19 @@ header .navbar .nav-item .nav-link:hover {
 }
 header .navbar .nav-item .active,
 header .navbar .nav-item .active:hover {
-  color: var(--primary-color) !important;
+  color: white !important;
+  font-weight: 600;
+}
+header .navbar .nav-item .active::after {
+  content: "";
+  position: absolute;
+  bottom: -1px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 30px;
+  height: 3px;
+  background-color: var(--accent-color);
+  border-radius: 2px;
 }
 
 .btn-primary {
@@ -199,4 +213,14 @@ header .navbar .nav-item .active:hover {
 }
 .footer img {
   width: 45px;
+}
+.footer a {
+  color: #b6b4b4 !important;
+  text-decoration: none !important;
+}
+
+/* Ensure it doesn't turn blue or underline when hovered */
+.footer a:hover {
+  text-decoration: none !important;
+  filter: brightness(1.1);
 }

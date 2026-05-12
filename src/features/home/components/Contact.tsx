@@ -11,7 +11,7 @@ function Contact({}: ContactProps) {
           data-aos="fade-up"
           data-aos-duration="800"
           data-aos-delay="400"
-          className="container "
+          className="container mt-5 mb-5"
         >
           <div className="row p-1">
             <div className="col-6 align-items-center justify-content-center m-auto p-5 ps-0">
