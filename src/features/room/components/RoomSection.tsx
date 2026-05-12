@@ -7,6 +7,7 @@ import { setStayPeriod } from "../roomSlice";
 import { useAppDispatch, useAppSelector } from "../../../store/hooks";
 import "react-date-range/dist/styles.css";
 import "react-date-range/dist/theme/default.css";
+import Select from "react-select";
 
 interface RoomSectionProps {}
 
@@ -16,6 +17,12 @@ function RoomSection({}: RoomSectionProps) {
   const stayPeriod = useAppSelector((state) => state.room.stayPeriod);
   const [showCalendar, setShowCalendar] = useState(false);
   const calendarRef = useRef<HTMLDivElement>(null);
+  const options = [
+    { value: "all", label: "All Categories" },
+    { value: "presidential", label: "Presidential Suite" },
+    { value: "deluxe", label: "Deluxe Room" },
+    { value: "standard", label: "Standard Room" },
+  ];
 
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
@@ -103,11 +110,41 @@ function RoomSection({}: RoomSectionProps) {
             <label htmlFor="categoryInput" className="form-label fw-boldest">
               Category
             </label>
-            <input
-              type="text"
-              className="form-control"
-              id="categoryInput"
+            <Select
+              options={options}
               placeholder="Select category"
+              styles={{
+                control: (base, state) => ({
+                  ...base,
+                  minHeight: "38px",
+                  borderRadius: "0.375rem",
+                  border: state.isFocused
+                    ? "1px solid #86b7fe"
+                    : "1px solid #dee2e6",
+                  boxShadow: state.isFocused
+                    ? "0 0 0 0.25rem rgba(13, 110, 253, 0.25)"
+                    : "none",
+                  "&:hover": {
+                    borderColor: state.isFocused ? "#86b7fe" : "#dee2e6",
+                  },
+                }),
+                valueContainer: (base) => ({
+                  ...base,
+                  padding: "0.375rem 0.75rem",
+                }),
+                input: (base) => ({
+                  ...base,
+                  margin: 0,
+                  padding: 0,
+                }),
+                indicatorSeparator: () => ({
+                  display: "none",
+                }),
+                dropdownIndicator: (base) => ({
+                  ...base,
+                  padding: "0 0.75rem",
+                }),
+              }}
             />
           </div>
         </div>

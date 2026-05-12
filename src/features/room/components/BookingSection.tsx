@@ -6,11 +6,17 @@ import BookingDetailsForm from "./BookingDetailsForm";
 import GuestInfoForm from "./GuestInfoForm";
 import AddOnsForm from "./AddOnsForm";
 import ConfirmationForm from "./ConfirmationForm";
+import React from "react";
+import { DayPicker } from "react-day-picker";
+import { parseISO } from "date-fns";
+import "react-day-picker/dist/style.css";
 
 function BookingSection({}: BookingSectionProps) {
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
   const currentStep: string = useAppSelector((state) => state.room.currentStep);
+  const bookedDatesStrings = ["2026-05-15", "2026-05-16", "2026-05-20"];
+  const bookedDates = bookedDatesStrings.map((date) => parseISO(date));
   const steps = [
     {
       label: "Booking Details",
@@ -78,14 +84,49 @@ function BookingSection({}: BookingSectionProps) {
               </div>
             ))}
           </div>
-          <div className="col-5 px-0">
+          <div className="col-7 px-0">
             <div className="booking-form py-5 px-4 mb-5">
               <h4 className="fw-boldest">{currentStep}</h4>
               <hr />
               {renderStepContent()}
             </div>
           </div>
-          <div className="col-6"></div>
+          <div className="col-4 d-flex align-items-center justify-content-end mb-5">
+            <div
+              className="p-4 shadow-lg bg-white"
+              style={{ borderRadius: "25px", width: "fit-content" }}
+            >
+              <DayPicker
+                mode="single"
+                modifiers={{
+                  booked: bookedDates,
+                }}
+                modifiersStyles={{
+                  booked: {
+                    color: "var(--primary-color)",
+                    fontWeight: "bold",
+                    backgroundColor: "#ffe6e6",
+                  },
+                }}
+              />
+
+              <div className="mt-3 ms-2">
+                <small className="text-muted">
+                  <span
+                    className="badge rounded-pill me-2"
+                    style={{
+                      border: "0px solid var(--primary-color)",
+                      backgroundColor: "#ffe6e6",
+                      color: "var(--primary-color)",
+                    }}
+                  >
+                    {" "}
+                  </span>
+                  Confirmed Bookings
+                </small>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </>

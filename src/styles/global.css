@@ -253,3 +253,7 @@ header .navbar .nav-item .active:hover {
 .pointer {
   cursor: pointer !important;
 }
+
+.rdp-day.rdp-selected button {
+  border: 0px solid var(--primary-color) !important;
+}
