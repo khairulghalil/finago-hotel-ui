@@ -1,6 +1,7 @@
 import { setHeaderTitle, setCurrentStep, setToBook } from "../roomSlice";
 import { initialToBookState } from "../constants";
 import { useAppDispatch } from "../../../store/hooks";
+import { differenceInDays, parse } from "date-fns";
 
 interface AvailableRoomCardProps {
   id: string;
@@ -11,6 +12,8 @@ interface AvailableRoomCardProps {
   bedType: string;
   roomNumber: string;
   price: number;
+  arrivalDate?: string;
+  departureDate?: string;
 }
 
 function AvailableRoomCard({
@@ -22,10 +25,17 @@ function AvailableRoomCard({
   bedType,
   roomNumber,
   price,
+  arrivalDate,
+  departureDate,
 }: AvailableRoomCardProps) {
   const dispatch = useAppDispatch();
 
   const handleBookNow = () => {
+    const arrival = parse(arrivalDate || "", "dd/MM/yyyy", new Date());
+    const departure = parse(departureDate || "", "dd/MM/yyyy", new Date());
+    const totalNights = differenceInDays(departure, arrival);
+    const totalPrice = price * (totalNights > 0 ? totalNights : 0);
+
     dispatch(setHeaderTitle("Booking"));
     dispatch(setCurrentStep("Booking Details"));
     dispatch(
@@ -34,7 +44,10 @@ function AvailableRoomCard({
         id,
         title,
         roomNumber,
-        price,
+        price: totalPrice,
+        arrivalDate: arrivalDate || "",
+        departureDate: departureDate || "",
+        totalNights: totalNights,
       }),
     );
   };

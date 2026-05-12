@@ -27,4 +27,11 @@ export interface ToBookRoomData {
   phone: string;
   addOns: AddOnsData;
   price: number;
+  totalNights: number;
+}
+
+export interface StayPeriod {
+  startDate: string;
+  endDate: string;
+  key: string;
 }

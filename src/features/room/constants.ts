@@ -12,4 +12,5 @@ export const initialToBookState: ToBookRoomData = {
   phone: "",
   addOns: { breakfast: false, spa: false, airportTransfer: false },
   price: 0,
+  totalNights: 0,
 };

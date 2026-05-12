@@ -1,5 +1,5 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import type { RoomData, ToBookRoomData } from "./types";
+import type { RoomData, StayPeriod, ToBookRoomData } from "./types";
 import { initialToBookState } from "./constants";
 
 interface RoomState {
@@ -7,6 +7,7 @@ interface RoomState {
   currentStep: string;
   data: RoomData[];
   toBook: ToBookRoomData;
+  stayPeriod: StayPeriod[];
 }
 
 const initialState: RoomState = {
@@ -77,6 +78,17 @@ const initialState: RoomState = {
     },
   ],
   toBook: initialToBookState,
+  stayPeriod: [
+    {
+      startDate: new Date().toISOString(),
+      endDate: (() => {
+        const tomorrow = new Date();
+        tomorrow.setDate(tomorrow.getDate() + 1);
+        return tomorrow.toISOString();
+      })(),
+      key: "selection",
+    },
+  ],
 };
 
 const roomSlice = createSlice({
@@ -95,9 +107,17 @@ const roomSlice = createSlice({
     setToBook: (state, action: PayloadAction<ToBookRoomData>) => {
       state.toBook = action.payload;
     },
+    setStayPeriod: (state, action: PayloadAction<StayPeriod[]>) => {
+      state.stayPeriod = action.payload;
+    },
   },
 });
 
-export const { setHeaderTitle, setData, setCurrentStep, setToBook } =
-  roomSlice.actions;
+export const {
+  setHeaderTitle,
+  setData,
+  setCurrentStep,
+  setToBook,
+  setStayPeriod,
+} = roomSlice.actions;
 export default roomSlice.reducer;

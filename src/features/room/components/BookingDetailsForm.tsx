@@ -5,6 +5,7 @@ interface BookingDetailsFormProps {}
 
 function BookingDetailsForm({}: BookingDetailsFormProps) {
   const toBook = useAppSelector((state) => state.room.toBook);
+  console.log("BookingDetailsForm rendered with toBook:", toBook);
   const dispatch = useAppDispatch();
   return (
     <>
@@ -45,6 +46,7 @@ function BookingDetailsForm({}: BookingDetailsFormProps) {
               className="form-control shadow-none"
               id="arrivalDateInput"
               placeholder="Enter arrival date"
+              value={toBook?.arrivalDate || ""}
               disabled
             />
           </div>
@@ -60,6 +62,7 @@ function BookingDetailsForm({}: BookingDetailsFormProps) {
               className="form-control shadow-none"
               id="departureDateInput"
               placeholder="Enter departure date"
+              value={toBook?.departureDate || ""}
               disabled
             />
           </div>

@@ -11,9 +11,9 @@ function AddOnsForm({}: AddOnsFormProps) {
     let updatedPrice = toBook.price;
 
     if (value === true) {
-      updatedPrice = toBook.price + 20;
+      updatedPrice = toBook.price + 20 * toBook.totalNights;
     } else {
-      updatedPrice = toBook.price - 20;
+      updatedPrice = toBook.price - 20 * toBook.totalNights;
     }
 
     dispatch(

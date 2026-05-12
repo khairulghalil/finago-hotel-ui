@@ -7,15 +7,17 @@ interface AvailableRoomProps {
 }
 
 function AvailableRoom({ checkInDate, checkOutDate }: AvailableRoomProps) {
-  console.log(
-    `AvailableRoom rendered with checkInDate: ${checkInDate} and checkOutDate: ${checkOutDate}`,
-  );
   const data = useAppSelector((state) => state.room.data);
   return (
     <>
       <div className="row row-cols-3 g-4 justify-content-center mb-5 text-center">
         {data.map((room) => (
-          <AvailableRoomCard key={room.id} {...room} />
+          <AvailableRoomCard
+            key={room.id}
+            {...room}
+            arrivalDate={checkInDate || ""}
+            departureDate={checkOutDate || ""}
+          />
         ))}
       </div>
     </>
