@@ -5,13 +5,11 @@
   --accent-color: #ffca2c;
   --bg-dark: #212529;
 }
-
 #root {
   padding: 0;
   margin: 0;
   min-width: 100%;
 }
-
 body {
   background-color: #ffffff;
   margin: 0;
@@ -19,17 +17,58 @@ body {
   font-family: "Afacad", sans-serif;
   font-size: 18px !important;
 }
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 70px;
+}
+
+/* ----------- */
 header {
   background-color: var(--primary-color);
 }
 header img {
   width: 170px;
+  padding: 10px 0px;
 }
 header h5 {
   color: white !important;
   font-weight: bold;
   font-size: 35px !important;
 }
+header .navbar {
+  background-color: #1212121c !important;
+  backdrop-filter: blur(10px); /* The blur effect */
+  -webkit-backdrop-filter: blur(10px); /* Safari support */
+  color: var(--primary-font-color) !important;
+  font-weight: 500;
+  border-bottom: 0px solid #271515 !important;
+  font-size: 20px !important;
+}
+header .navbar .btn {
+  font-size: 18px !important;
+}
+header .navbar .nav-link {
+  color: var(--primary-font-color) !important;
+  font-weight: 500;
+  margin: 0px 12px;
+  text-align: center;
+  cursor: pointer !important;
+}
+header .navbar-toggler {
+  border: 1px solid #c7c6c6 !important;
+}
+header .navbar-toggler i {
+  color: #b0b0b0 !important;
+}
+header .navbar .nav-item .nav-link:hover {
+  color: white !important;
+  transition: color 0.5s ease;
+}
+header .navbar .nav-item .active,
+header .navbar .nav-item .active:hover {
+  color: var(--primary-color) !important;
+}
+
 .btn-primary {
   background-color: var(--primary-color);
   color: rgb(255, 255, 255) !important;
@@ -131,6 +170,7 @@ header h5 {
   color: grey;
 }
 
+/* FOOTER */
 .footer {
   background-color: #060d1a;
   color: #fff;
@@ -146,21 +186,17 @@ header h5 {
   font-size: 14px;
   color: #7d7d7d;
 }
-
 .footer .copyright {
   font-size: 16px !important;
   color: #fff !important;
 }
-
 .footer .row p {
   color: #7d7d7d;
   font-size: 17.5px;
 }
-
 .footer h1 span {
   color: #ebb12a !important;
 }
-
 .footer img {
   width: 45px;
 }

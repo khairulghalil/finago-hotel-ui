@@ -4,8 +4,16 @@ interface AboutProps {}
 function About({}: AboutProps) {
   return (
     <>
-      <section className="about container-fluid d-flex align-items-center justify-content-center m-auto p-3">
-        <div data-aos="fade-up" className="container ">
+      <section
+        id="about"
+        className="about container-fluid d-flex align-items-center justify-content-center m-auto p-3"
+      >
+        <div
+          data-aos="fade-up"
+          data-aos-duration="800"
+          data-aos-delay="400"
+          className="container "
+        >
           <div className="row p-1">
             <div className="col-6 align-items-center justify-content-center m-auto p-5 ps-0 about-left">
               <h1 className="fw-boldest">Welcome to Finago Hotel</h1>

@@ -5,7 +5,10 @@ interface OverviewProps {}
 function Overview({}: OverviewProps) {
   return (
     <>
-      <section className="overview container-fluid d-flex align-items-center justify-content-center m-auto">
+      <section
+        id="home"
+        className="overview container-fluid d-flex align-items-center justify-content-center m-auto"
+      >
         <div className="row p-4">
           <div
             data-aos="fade-up"
@@ -45,7 +48,7 @@ function Overview({}: OverviewProps) {
 
           <div
             data-aos="slide-up"
-            className="counter row w-75 m-auto mb-5 text-center"
+            className="counter row w-75 m-auto mb-0 text-center"
           >
             <hr className="my-5" />
             <div

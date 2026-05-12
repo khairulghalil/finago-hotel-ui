@@ -3,7 +3,13 @@ interface AmenitiesProps {}
 function Amenities({}: AmenitiesProps) {
   return (
     <>
-      <section className="container amenities d-flex flex-column text-center">
+      <section
+        data-aos="fade-up"
+        data-aos-duration="800"
+        data-aos-delay="400"
+        id="amenities"
+        className="container amenities d-flex flex-column text-center"
+      >
         <div className="section-title mt-4 mb-4">
           <h2 className="fw-boldest text-uppercase">Amenities</h2>
           <p className="text-muted m-0">

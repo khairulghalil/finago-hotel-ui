@@ -86,15 +86,27 @@
   box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
 }
 
-/* ABSTRACT CSS */
-.abstract {
+/* CONTACT CSS */
+.contact {
   background-color: #f1f6f5;
 }
-.abstract p {
+.contact p {
   color: var(--primary-color) !important;
   font-size: 18px;
 }
-.abstract img {
+.contact img {
   width: 100% !important;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.326);
+}
+.contact i {
+  border: 1px solid currentColor;
+  border-radius: 50%;
+  padding: 8px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  top: 2px;
+  position: relative;
 }

@@ -2,7 +2,7 @@ import "./home.css";
 import Overview from "./components/Overview";
 import About from "./components/About";
 import Amenities from "./components/Amenities";
-import Abstract from "./components/Abstract";
+import Contact from "./components/Contact";
 
 function Home() {
   return (
@@ -10,7 +10,7 @@ function Home() {
       <Overview />
       <About />
       <Amenities />
-      <Abstract />
+      <Contact />
     </>
   );
 }
