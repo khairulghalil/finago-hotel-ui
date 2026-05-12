@@ -6,7 +6,7 @@ import "./App.css";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import Home from "./features/home";
-import Profile from "./features/profile";
+import Room from "./features/room";
 import "./styles/global.css";
 
 function App() {
@@ -26,7 +26,7 @@ function App() {
         <Header />
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/profile" element={<Profile />} />
+          <Route path="/room" element={<Room />} />
         </Routes>
         <Footer />
       </BrowserRouter>

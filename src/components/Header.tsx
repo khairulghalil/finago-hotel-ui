@@ -1,9 +1,31 @@
 import { useState, useEffect } from "react";
+import { useNavigate, useLocation } from "react-router-dom";
 
 interface HeaderProps {}
 
 function Header({}: HeaderProps) {
   const [activeSection, setActiveSection] = useState("home");
+  const navigate = useNavigate();
+  const location = useLocation();
+
+  const handleSectionClick = (sectionId: string) => {
+    setActiveSection(sectionId);
+
+    if (location.pathname !== "/") {
+      navigate("/");
+      setTimeout(() => {
+        const element = document.getElementById(sectionId);
+        if (element) {
+          element.scrollIntoView({ behavior: "smooth" });
+        }
+      }, 100);
+    } else {
+      const element = document.getElementById(sectionId);
+      if (element) {
+        element.scrollIntoView({ behavior: "smooth" });
+      }
+    }
+  };
 
   useEffect(() => {
     const handleScroll = () => {
@@ -24,17 +46,21 @@ function Header({}: HeaderProps) {
       });
     };
 
-    window.addEventListener("scroll", handleScroll);
-    handleScroll();
-
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+    // Only enable scroll spy on home page
+    if (location.pathname === "/") {
+      window.addEventListener("scroll", handleScroll);
+      handleScroll();
+      return () => window.removeEventListener("scroll", handleScroll);
+    } else if (location.pathname === "/room") {
+      setActiveSection("room");
+    }
+  }, [location.pathname]);
 
   return (
     <>
       <header id="header" className="header fixed-top">
         <nav className="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
-          <div className="container-fluid mx-1 mx-lg-5">
+          <div className="container-fluid px-0 mx-lg-5">
             <button
               className="navbar-toggler shadow-none"
               type="button"
@@ -55,44 +81,44 @@ function Header({}: HeaderProps) {
               />
               <ul className="navbar-nav ms-auto mb-2 mb-lg-0 mt-2 mt-lg-0">
                 <li className="nav-item">
-                  <a
+                  <span
                     className={`nav-link ${activeSection === "home" ? "active" : ""}`}
-                    href="#home"
+                    onClick={() => handleSectionClick("home")}
                   >
                     Home
-                  </a>
+                  </span>
                 </li>
                 <li className="nav-item">
-                  <a
+                  <span
                     className={`nav-link ${activeSection === "about" ? "active" : ""}`}
-                    href="#about"
+                    onClick={() => handleSectionClick("about")}
                   >
                     About
-                  </a>
+                  </span>
                 </li>
                 <li className="nav-item">
-                  <a
-                    className={`nav-link ${activeSection === "rooms" ? "active" : ""}`}
-                    href="#rooms"
+                  <span
+                    className={`nav-link ${activeSection === "room" ? "active" : ""}`}
+                    onClick={() => navigate("/room")}
                   >
                     Rooms
-                  </a>
+                  </span>
                 </li>
                 <li className="nav-item">
-                  <a
+                  <span
                     className={`nav-link ${activeSection === "amenities" ? "active" : ""}`}
-                    href="#amenities"
+                    onClick={() => handleSectionClick("amenities")}
                   >
                     Amenities
-                  </a>
+                  </span>
                 </li>
                 <li className="nav-item">
-                  <a
+                  <span
                     className={`nav-link ${activeSection === "contact" ? "active" : ""}`}
-                    href="#contact"
+                    onClick={() => handleSectionClick("contact")}
                   >
                     Contact
-                  </a>
+                  </span>
                 </li>
               </ul>
             </div>

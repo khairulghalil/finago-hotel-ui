@@ -71,17 +71,6 @@ header .navbar .nav-item .active:hover {
   color: white !important;
   font-weight: 600;
 }
-header .navbar .nav-item .active::after {
-  content: "";
-  position: absolute;
-  bottom: -1px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 30px;
-  height: 3px;
-  background-color: var(--accent-color);
-  border-radius: 2px;
-}
 
 .btn-primary {
   background-color: var(--primary-color);
@@ -218,9 +207,38 @@ header .navbar .nav-item .active::after {
   color: #b6b4b4 !important;
   text-decoration: none !important;
 }
-
-/* Ensure it doesn't turn blue or underline when hovered */
 .footer a:hover {
   text-decoration: none !important;
   filter: brightness(1.1);
+}
+.footer i {
+  border: 1px solid currentColor;
+  border-radius: 50%;
+  padding: 8px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  top: 2px;
+  position: relative;
+}
+
+.header-title {
+  background-color: color-mix(
+    in srgb,
+    var(--primary-color),
+    white 80%
+  ) !important;
+  margin-top: 73px;
+  /* height: 80px; */
+  padding: 20px 20px;
+}
+.header-title h2 {
+  font-weight: 600;
+  font-size: 30px;
+  letter-spacing: 1px;
+}
+.pointer {
+  cursor: pointer !important;
 }

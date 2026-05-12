@@ -1,0 +1,52 @@
+.room {
+  margin-top: 20px;
+}
+.room .header {
+  background-color: color-mix(
+    in srgb,
+    var(--primary-color),
+    white 80%
+  ) !important;
+}
+.room .filter-card {
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+}
+.room .filter-card h5 {
+  padding: 20px;
+}
+.room .room-details p {
+  margin-bottom: 0px !important;
+  color: var(--bs-secondary-color);
+}
+.room .room-details .title-details {
+  font-weight: 900;
+  color: #000 !important;
+}
+.room .card {
+  width: 392px;
+  border: none;
+  box-shadow: 0 10px 15px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+}
+.room .card:hover {
+  transform: translateY(-15px);
+  transition: transform 0.3s ease;
+}
+.room .card h5 {
+  font-size: 25px;
+  margin: 7px 0px 5px !important;
+}
+.room .card h5 span {
+  font-size: 15px;
+}
+.room .room-price h3 {
+  color: var(--primary-color) !important;
+  font-weight: 900 !important;
+  margin-bottom: 0px !important;
+}
+.room .room-price h3 .text-muted {
+  font-size: 16px;
+  color: var(--bs-secondary-color) !important;
+  font-weight: 400 !important;
+}

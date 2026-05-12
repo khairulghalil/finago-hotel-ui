@@ -3,7 +3,7 @@ interface FooterProps {}
 function Footer({}: FooterProps) {
   return (
     <>
-      <footer className="footer">
+      <footer data-aos="fade-up" className="footer">
         <div className="container pb-4">
           <div className="row pt-5 mb-4">
             <div className="col-4 d-flex flex-column align-items-start justify-content-center">
@@ -16,12 +16,11 @@ function Footer({}: FooterProps) {
               </div>
             </div>
             <div className="col-8 text-end px-4">
-              <div className="d-flex gap-4 align-items-center mb-5">
-                <a href="#home">Home</a>
-                <a href="#about">About</a>
-                <a href="#rooms">Rooms</a>
-                <a href="#amenities">Amenities</a>
-                <a href="#contact">Contact</a>
+              <div className="d-flex flex-row gap-4 mb-4 text-start justify-content-start">
+                <i className="bi bi-facebook flex-shrink-0"></i>
+                <i className="bi bi-tiktok flex-shrink-0"></i>
+                <i className="bi bi-instagram flex-shrink-0"></i>
+                <i className="bi bi-whatsapp flex-shrink-0 me-0"></i>
               </div>
               <p className="mb-3 text-start">
                 Exclusive booking platform for luxury stays in Malaysia. Easy,
