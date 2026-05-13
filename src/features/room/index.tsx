@@ -1,4 +1,5 @@
 import { useEffect, useRef } from "react";
+import { format } from "date-fns";
 import {
   setHeaderTitle,
   setCurrentStep,
@@ -14,9 +15,13 @@ import { roomApi } from "../../api/roomService";
 function Room() {
   const dispatch = useAppDispatch();
   const headerTitle = useAppSelector((state) => state.room.headerTitle);
+  const roomTypeSelected = useAppSelector(
+    (state) => state.room.roomTypeSelected,
+  );
+  const stayPeriod = useAppSelector((state) => state.room.stayPeriod);
   const initialized = useRef(false);
 
-  const fetchRooms = async () => {
+  const getRoomTypeOpt = async () => {
     try {
       const roomTypeOptions = await roomApi.getRoomTypeOpt();
       return roomTypeOptions;
@@ -25,70 +30,19 @@ function Room() {
     }
   };
 
-  const data = [
-    {
-      id: "382nRb",
-      img: "./src/assets/img/presidential.png",
-      roomType: "Presidential Suite",
-      description: "Experience the pinnacle of hospitality in our crown jewel.",
-      size: 1200,
-      bedType: "1 x King size bed",
-      roomNumber: "12-7",
-      price: 1200,
-    },
-    {
-      id: "aywkW7",
-      img: "./src/assets/img/family.png",
-      roomType: "Family Room",
-      description:
-        "Spacious and comfortable, ideal for families to have a good time.",
-      size: 1200,
-      bedType: "2 x Queen size bed",
-      roomNumber: "9-2",
-      price: 850,
-    },
-    {
-      id: "XffehM",
-      img: "./src/assets/img/deluxe.png",
-      roomType: "Deluxe Room",
-      description:
-        "A perfect blend of contemporary design and refined comfort.",
-      size: 1200,
-      bedType: "1 x Queen size bed",
-      roomNumber: "10-3",
-      price: 550,
-    },
-    {
-      id: "619Z6O",
-      img: "./src/assets/img/standard.png",
-      roomType: "Standard Room",
-      description: "A comfortable and well-appointed room for a relaxing stay.",
-      size: 1200,
-      bedType: "2 x Single size bed",
-      roomNumber: "5-3",
-      price: 350,
-    },
-    {
-      id: "556GoD",
-      img: "./src/assets/img/standard.png",
-      roomType: "Standard Room",
-      description: "A comfortable and well-appointed room for a relaxing stay.",
-      size: 1200,
-      bedType: "2 x Single size bed",
-      roomNumber: "6-4",
-      price: 350,
-    },
-    {
-      id: "zTXuce",
-      img: "./src/assets/img/standard.png",
-      roomType: "Standard Room",
-      description: "A comfortable and well-appointed room for a relaxing stay.",
-      size: 1200,
-      bedType: "2 x Single size bed",
-      roomNumber: "7-5",
-      price: 350,
-    },
-  ];
+  const getAvailableRoom = async () => {
+    try {
+      const params = {
+        roomCategoryId: roomTypeSelected,
+        checkInDate: format(new Date(stayPeriod[0].startDate), "yyyy-MM-dd"),
+        checkOutDate: format(new Date(stayPeriod[0].endDate), "yyyy-MM-dd"),
+      };
+      const availableRooms = await roomApi.getAvailableRoom(params);
+      return availableRooms;
+    } catch (error) {
+      return [];
+    }
+  };
 
   useEffect(() => {
     if (initialized.current) return;
@@ -98,12 +52,21 @@ function Room() {
       window.scrollTo(0, 0);
       dispatch(setHeaderTitle("Room"));
       dispatch(setCurrentStep("Booking Details"));
-      const roomTypeOptions = await fetchRooms();
+      const roomTypeOptions = await getRoomTypeOpt();
       dispatch(setRoomTypeOpt(roomTypeOptions));
-      dispatch(setData(data));
+      const availableRooms = await getAvailableRoom();
+      dispatch(setData(availableRooms));
     };
     initialize();
   }, []);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      const availableRooms = await getAvailableRoom();
+      dispatch(setData(availableRooms));
+    };
+    fetchData();
+  }, [roomTypeSelected, stayPeriod]);
 
   return (
     <>

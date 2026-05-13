@@ -57,7 +57,11 @@ function AvailableRoomCard({
       <div className="col px-4">
         <div className="card text-start mb-5">
           <div className="card-body p-0">
-            <img src={img} alt={roomType} className="img-fluid card-img-top" />
+            <img
+              src={`./src/assets/img/${img}`}
+              alt={roomType}
+              className="img-fluid card-img-top"
+            />
             <div className="p-3">
               <h5 className="card-title fw-boldest my-2 d-flex align-items-center justify-content-between">
                 {roomType}

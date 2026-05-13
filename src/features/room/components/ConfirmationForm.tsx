@@ -1,11 +1,30 @@
-import { setCurrentStep, setHeaderTitle } from "../roomSlice";
+import { setCurrentStep } from "../roomSlice";
 import { useAppDispatch, useAppSelector } from "../../../store/hooks";
+import { roomApi } from "../../../api/roomService";
 
 interface ConfirmationFormProps {}
 
 function ConfirmationForm({}: ConfirmationFormProps) {
   const dispatch = useAppDispatch();
   const toBook = useAppSelector((state) => state.room.toBook);
+
+  const createBooking = async () => {
+    try {
+      const bookingResponse = await roomApi.createBooking(toBook);
+      return bookingResponse;
+    } catch (error) {
+      return null;
+    }
+  };
+
+  const handleConfirm = async () => {
+    const bookingResponse = await createBooking();
+    if (bookingResponse) {
+      location.reload();
+    } else {
+      alert("Failed to create booking. Please try again.");
+    }
+  };
 
   return (
     <>
@@ -31,7 +50,7 @@ function ConfirmationForm({}: ConfirmationFormProps) {
           type="submit"
           className="btn btn-primary shadow-none mt-0 px-4"
           onClick={() => {
-            dispatch(setHeaderTitle("Room"));
+            handleConfirm();
           }}
         >
           Confirm

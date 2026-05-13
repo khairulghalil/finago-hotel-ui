@@ -5,7 +5,7 @@ import type {
   StayPeriod,
   ToBookRoomData,
 } from "./types";
-import { initialToBookState } from "./constants";
+import { initialStayPeriod, initialToBookState } from "./constants";
 
 interface RoomState {
   headerTitle: string;
@@ -15,6 +15,7 @@ interface RoomState {
   stayPeriod: StayPeriod[];
   roomTypeOpt: RoomTypeOpt[];
   roomTypeSelected: string;
+  bookedDatesStrings: string[];
 }
 
 const initialState: RoomState = {
@@ -22,19 +23,10 @@ const initialState: RoomState = {
   currentStep: "Booking Details",
   data: [],
   toBook: initialToBookState,
-  stayPeriod: [
-    {
-      startDate: new Date().toISOString(),
-      endDate: (() => {
-        const tomorrow = new Date();
-        tomorrow.setDate(tomorrow.getDate() + 1);
-        return tomorrow.toISOString();
-      })(),
-      key: "selection",
-    },
-  ],
+  stayPeriod: initialStayPeriod,
   roomTypeOpt: [],
   roomTypeSelected: "all",
+  bookedDatesStrings: [],
 };
 
 const roomSlice = createSlice({
@@ -62,6 +54,9 @@ const roomSlice = createSlice({
     setRoomTypeSelected: (state, action: PayloadAction<string>) => {
       state.roomTypeSelected = action.payload;
     },
+    setBookedDatesStrings: (state, action: PayloadAction<string[]>) => {
+      state.bookedDatesStrings = action.payload;
+    },
   },
 });
 
@@ -73,5 +68,6 @@ export const {
   setStayPeriod,
   setRoomTypeOpt,
   setRoomTypeSelected,
+  setBookedDatesStrings,
 } = roomSlice.actions;
 export default roomSlice.reducer;

@@ -1,6 +1,6 @@
 interface BookingSectionProps {}
 import { useNavigate } from "react-router-dom";
-import { setHeaderTitle } from "../roomSlice";
+import { setBookedDatesStrings, setHeaderTitle } from "../roomSlice";
 import { useAppDispatch, useAppSelector } from "../../../store/hooks";
 import BookingDetailsForm from "./BookingDetailsForm";
 import GuestInfoForm from "./GuestInfoForm";
@@ -9,13 +9,38 @@ import ConfirmationForm from "./ConfirmationForm";
 import { DayPicker } from "react-day-picker";
 import { parseISO } from "date-fns";
 import "react-day-picker/dist/style.css";
+import { useEffect } from "react";
+import { roomApi } from "../../../api/roomService";
 
 function BookingSection({}: BookingSectionProps) {
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
   const currentStep: string = useAppSelector((state) => state.room.currentStep);
-  const bookedDatesStrings = ["2026-05-15", "2026-05-16", "2026-05-20"];
+  const bookedDatesStrings = useAppSelector(
+    (state) => state.room.bookedDatesStrings,
+  );
   const bookedDates = bookedDatesStrings.map((date) => parseISO(date));
+  const toBook = useAppSelector((state) => state.room.toBook);
+  const getBookedDate = async () => {
+    try {
+      const params = {
+        roomId: toBook.id,
+      };
+      const bookedDates = await roomApi.getBookedDate(params);
+      return bookedDates;
+    } catch (error) {
+      return [];
+    }
+  };
+
+  useEffect(() => {
+    const initialize = async () => {
+      const bookedDates = await getBookedDate();
+      dispatch(setBookedDatesStrings(bookedDates));
+    };
+    initialize();
+  }, []);
+
   const steps = [
     {
       label: "Booking Details",

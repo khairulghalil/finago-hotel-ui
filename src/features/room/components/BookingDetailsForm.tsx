@@ -5,7 +5,6 @@ interface BookingDetailsFormProps {}
 
 function BookingDetailsForm({}: BookingDetailsFormProps) {
   const toBook = useAppSelector((state) => state.room.toBook);
-  console.log("BookingDetailsForm rendered with toBook:", toBook);
   const dispatch = useAppDispatch();
   return (
     <>

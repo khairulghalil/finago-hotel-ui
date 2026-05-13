@@ -10,23 +10,22 @@ function GuestInfoForm({}: GuestInfoFormProps) {
 
   const formValidation = () => {
     let errMessage = "";
-    // TODO : uncomment this
-    // if (!toBook.name || !toBook.email || !toBook.icNumber || !toBook.phone) {
-    //   errMessage = "Please fill in all the required fields.";
-    // } else if (!/\S+@\S+\.\S+/.test(toBook.email)) {
-    //   errMessage = "Please enter a valid email address.";
-    // } else if (!/^\d{6}-\d{2}-\d{4}$/.test(toBook.icNumber)) {
-    //   errMessage =
-    //     "Please enter a valid IC number in this format xxxxxx-xx-xxxx.";
-    // } else if (!/^\+\d+$/.test(toBook.phone)) {
-    //   errMessage =
-    //     "Please enter a valid phone number in this format +xxxxxxxxxxx.";
-    // } else {
-    //   dispatch(setCurrentStep("Add-ons"));
-    // }
 
-    // TODO : remove this
-    dispatch(setCurrentStep("Add-ons"));
+    if (!toBook.name || !toBook.email || !toBook.icNumber || !toBook.phone) {
+      errMessage = "Please fill in all the required fields.";
+    } else if (!/\S+@\S+\.\S+/.test(toBook.email)) {
+      errMessage = "Please enter a valid email address.";
+    } else if (!/^\d{6}-\d{2}-\d{4}$/.test(toBook.icNumber)) {
+      errMessage =
+        "Please enter a valid IC number in this format xxxxxx-xx-xxxx.";
+    } else if (!/^\+\d+$/.test(toBook.phone)) {
+      errMessage =
+        "Please enter a valid phone number in this format +xxxxxxxxxxx.";
+    } else {
+      dispatch(setCurrentStep("Add-ons"));
+    }
+
+    // dispatch(setCurrentStep("Add-ons"));
 
     if (errMessage) {
       toast.error(errMessage, {

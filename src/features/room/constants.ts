@@ -14,3 +14,15 @@ export const initialToBookState: ToBookRoomData = {
   totalPrice: 0,
   totalNights: 0,
 };
+
+export const initialStayPeriod = [
+  {
+    startDate: new Date().toISOString(),
+    endDate: (() => {
+      const tomorrow = new Date();
+      tomorrow.setDate(tomorrow.getDate() + 1);
+      return tomorrow.toISOString();
+    })(),
+    key: "selection",
+  },
+];
