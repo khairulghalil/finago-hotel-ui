@@ -8,7 +8,7 @@ interface AvailableRoomCardProps {
   img: string;
   roomType: string;
   description: string;
-  size: string;
+  size: number;
   bedType: string;
   roomNumber: string;
   price: number;
@@ -78,7 +78,7 @@ function AvailableRoomCard({
                 </p>
               </span>
               <span className="badge bg-success me-2">Available</span>
-              <span className="badge bg-primary me-2">{size}</span>
+              <span className="badge bg-primary me-2">{size} sq ft</span>
               <span className="badge bg-warning me-2">{bedType}</span>
 
               <div className="d-flex room-price mt-3">

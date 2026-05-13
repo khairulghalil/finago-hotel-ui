@@ -3,7 +3,7 @@ export interface RoomData {
   img: string;
   roomType: string;
   description: string;
-  size: string;
+  size: number;
   bedType: string;
   roomNumber: string;
   price: number;
