@@ -6,33 +6,33 @@ import { differenceInDays, parse } from "date-fns";
 interface AvailableRoomCardProps {
   id: string;
   img: string;
-  title: string;
+  roomType: string;
   description: string;
   size: string;
   bedType: string;
   roomNumber: string;
   price: number;
-  arrivalDate?: string;
-  departureDate?: string;
+  checkInDate?: string;
+  checkOutDate?: string;
 }
 
 function AvailableRoomCard({
   id,
   img,
-  title,
+  roomType,
   description,
   size,
   bedType,
   roomNumber,
   price,
-  arrivalDate,
-  departureDate,
+  checkInDate,
+  checkOutDate,
 }: AvailableRoomCardProps) {
   const dispatch = useAppDispatch();
 
   const handleBookNow = () => {
-    const arrival = parse(arrivalDate || "", "dd/MM/yyyy", new Date());
-    const departure = parse(departureDate || "", "dd/MM/yyyy", new Date());
+    const arrival = parse(checkInDate || "", "dd/MM/yyyy", new Date());
+    const departure = parse(checkOutDate || "", "dd/MM/yyyy", new Date());
     const totalNights = differenceInDays(departure, arrival);
     const totalPrice = price * (totalNights > 0 ? totalNights : 0);
 
@@ -42,11 +42,11 @@ function AvailableRoomCard({
       setToBook({
         ...initialToBookState,
         id,
-        title,
+        roomType,
         roomNumber,
-        price: totalPrice,
-        arrivalDate: arrivalDate || "",
-        departureDate: departureDate || "",
+        totalPrice: totalPrice,
+        checkInDate: checkInDate || "",
+        checkOutDate: checkOutDate || "",
         totalNights: totalNights,
       }),
     );
@@ -57,10 +57,10 @@ function AvailableRoomCard({
       <div className="col px-4">
         <div className="card text-start mb-5">
           <div className="card-body p-0">
-            <img src={img} alt={title} className="img-fluid card-img-top" />
+            <img src={img} alt={roomType} className="img-fluid card-img-top" />
             <div className="p-3">
               <h5 className="card-title fw-boldest my-2 d-flex align-items-center justify-content-between">
-                {title}
+                {roomType}
                 <span className="small text-warning">
                   <i className="bi bi-star-fill"></i>
                   <i className="bi bi-star-fill"></i>

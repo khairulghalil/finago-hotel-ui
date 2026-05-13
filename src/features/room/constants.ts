@@ -2,15 +2,15 @@ import type { ToBookRoomData } from "./types";
 
 export const initialToBookState: ToBookRoomData = {
   id: "",
-  title: "",
+  roomType: "",
   roomNumber: "",
-  arrivalDate: "",
-  departureDate: "",
+  checkInDate: "",
+  checkOutDate: "",
   name: "",
   email: "",
-  ic: "",
+  icNumber: "",
   phone: "",
   addOns: { breakfast: false, spa: false, airportTransfer: false },
-  price: 0,
+  totalPrice: 0,
   totalNights: 0,
 };

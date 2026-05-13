@@ -15,8 +15,8 @@ function AvailableRoom({ checkInDate, checkOutDate }: AvailableRoomProps) {
           <AvailableRoomCard
             key={room.id}
             {...room}
-            arrivalDate={checkInDate || ""}
-            departureDate={checkOutDate || ""}
+            checkInDate={checkInDate || ""}
+            checkOutDate={checkOutDate || ""}
           />
         ))}
       </div>

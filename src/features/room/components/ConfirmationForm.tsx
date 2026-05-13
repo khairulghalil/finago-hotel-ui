@@ -18,7 +18,7 @@ function ConfirmationForm({}: ConfirmationFormProps) {
           Once confirmed, your reservation will be processed. If you need to
           make any changes, you can go back to the previous steps.
         </p>
-        <h4>Total : RM {toBook?.price || 0}</h4>
+        <h4>Total : RM {toBook?.totalPrice || 0}</h4>
       </form>
       <div className="text-end" style={{ marginTop: "10px" }}>
         <button

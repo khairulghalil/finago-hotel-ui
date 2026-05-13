@@ -20,7 +20,7 @@ function BookingDetailsForm({}: BookingDetailsFormProps) {
               className="form-control shadow-none"
               id="roomTypeInput"
               placeholder="Enter room type"
-              value={toBook?.title || ""}
+              value={toBook?.roomType || ""}
               disabled
             />
           </div>
@@ -38,31 +38,31 @@ function BookingDetailsForm({}: BookingDetailsFormProps) {
             />
           </div>
           <div className="col-6 mb-3">
-            <label htmlFor="arrivalDateInput" className="form-label fw-boldest">
-              Arrival Date
+            <label htmlFor="checkInDateInput" className="form-label fw-boldest">
+              Check-In Date
             </label>
             <input
               type="text"
               className="form-control shadow-none"
-              id="arrivalDateInput"
-              placeholder="Enter arrival date"
-              value={toBook?.arrivalDate || ""}
+              id="checkInDateInput"
+              placeholder="Enter check-in date"
+              value={toBook?.checkInDate || ""}
               disabled
             />
           </div>
           <div className="col-6 mb-3">
             <label
-              htmlFor="departureDateInput"
+              htmlFor="checkOutDateInput"
               className="form-label fw-boldest"
             >
-              Departure Date
+              Check-Out Date
             </label>
             <input
               type="text"
               className="form-control shadow-none"
-              id="departureDateInput"
-              placeholder="Enter departure date"
-              value={toBook?.departureDate || ""}
+              id="checkOutDateInput"
+              placeholder="Enter check-out date"
+              value={toBook?.checkOutDate || ""}
               disabled
             />
           </div>

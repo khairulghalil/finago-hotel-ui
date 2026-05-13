@@ -8,12 +8,12 @@ function AddOnsForm({}: AddOnsFormProps) {
   const toBook = useAppSelector((state) => state.room.toBook);
 
   const handleInputChange = (field: string, value: any) => {
-    let updatedPrice = toBook.price;
+    let updatedPrice = toBook.totalPrice;
 
     if (value === true) {
-      updatedPrice = toBook.price + 20 * toBook.totalNights;
+      updatedPrice = toBook.totalPrice + 20 * toBook.totalNights;
     } else {
-      updatedPrice = toBook.price - 20 * toBook.totalNights;
+      updatedPrice = toBook.totalPrice - 20 * toBook.totalNights;
     }
 
     dispatch(
@@ -23,7 +23,7 @@ function AddOnsForm({}: AddOnsFormProps) {
           ...toBook.addOns,
           [field]: value,
         },
-        price: updatedPrice,
+        totalPrice: updatedPrice,
       }),
     );
   };

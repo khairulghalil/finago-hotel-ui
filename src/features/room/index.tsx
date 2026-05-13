@@ -12,7 +12,7 @@ function Room() {
     {
       id: "382nRb",
       img: "./src/assets/img/presidential.png",
-      title: "Presidential Suite",
+      roomType: "Presidential Suite",
       description: "Experience the pinnacle of hospitality in our crown jewel.",
       size: "1200 sq ft",
       bedType: "1 x King size bed",
@@ -22,7 +22,7 @@ function Room() {
     {
       id: "aywkW7",
       img: "./src/assets/img/family.png",
-      title: "Family Room",
+      roomType: "Family Room",
       description:
         "Spacious and comfortable, ideal for families to have a good time.",
       size: "1200 sq ft",
@@ -33,7 +33,7 @@ function Room() {
     {
       id: "XffehM",
       img: "./src/assets/img/deluxe.png",
-      title: "Deluxe Room",
+      roomType: "Deluxe Room",
       description:
         "A perfect blend of contemporary design and refined comfort.",
       size: "1200 sq ft",
@@ -44,7 +44,7 @@ function Room() {
     {
       id: "619Z6O",
       img: "./src/assets/img/standard.png",
-      title: "Standard Room",
+      roomType: "Standard Room",
       description: "A comfortable and well-appointed room for a relaxing stay.",
       size: "1200 sq ft",
       bedType: "2 x Single size bed",
@@ -54,7 +54,7 @@ function Room() {
     {
       id: "556GoD",
       img: "./src/assets/img/standard.png",
-      title: "Standard Room",
+      roomType: "Standard Room",
       description: "A comfortable and well-appointed room for a relaxing stay.",
       size: "1200 sq ft",
       bedType: "2 x Single size bed",
@@ -64,7 +64,7 @@ function Room() {
     {
       id: "zTXuce",
       img: "./src/assets/img/standard.png",
-      title: "Standard Room",
+      roomType: "Standard Room",
       description: "A comfortable and well-appointed room for a relaxing stay.",
       size: "1200 sq ft",
       bedType: "2 x Single size bed",

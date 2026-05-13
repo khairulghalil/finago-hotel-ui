@@ -6,7 +6,6 @@ import BookingDetailsForm from "./BookingDetailsForm";
 import GuestInfoForm from "./GuestInfoForm";
 import AddOnsForm from "./AddOnsForm";
 import ConfirmationForm from "./ConfirmationForm";
-import React from "react";
 import { DayPicker } from "react-day-picker";
 import { parseISO } from "date-fns";
 import "react-day-picker/dist/style.css";

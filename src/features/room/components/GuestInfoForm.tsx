@@ -11,11 +11,11 @@ function GuestInfoForm({}: GuestInfoFormProps) {
   const formValidation = () => {
     let errMessage = "";
     // TODO : uncomment this for validation
-    // if (!toBook.name || !toBook.email || !toBook.ic || !toBook.phone) {
+    // if (!toBook.name || !toBook.email || !toBook.icNumber || !toBook.phone) {
     //   errMessage = "Please fill in all the required fields.";
     // } else if (!/\S+@\S+\.\S+/.test(toBook.email)) {
     //   errMessage = "Please enter a valid email address.";
-    // } else if (!/^\d{6}-\d{2}-\d{4}$/.test(toBook.ic)) {
+    // } else if (!/^\d{6}-\d{2}-\d{4}$/.test(toBook.icNumber)) {
     //   errMessage =
     //     "Please enter a valid IC number in this format xxxxxx-xx-xxxx.";
     // } else if (!/^\+\d+$/.test(toBook.phone)) {
@@ -89,8 +89,8 @@ function GuestInfoForm({}: GuestInfoFormProps) {
               className="form-control shadow-none"
               id="icNumberInput"
               placeholder="Enter your IC number"
-              value={toBook.ic}
-              onChange={(e) => handleInputChange("ic", e.target.value)}
+              value={toBook.icNumber}
+              onChange={(e) => handleInputChange("icNumber", e.target.value)}
               autoComplete="off"
               required
             />

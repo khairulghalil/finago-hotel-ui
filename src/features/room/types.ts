@@ -1,7 +1,7 @@
 export interface RoomData {
   id: string;
   img: string;
-  title: string;
+  roomType: string;
   description: string;
   size: string;
   bedType: string;
@@ -17,16 +17,16 @@ export interface AddOnsData {
 
 export interface ToBookRoomData {
   id: string;
-  title: string;
+  roomType: string;
   roomNumber: string;
-  arrivalDate: string;
-  departureDate: string;
+  checkInDate: string;
+  checkOutDate: string;
   name: string;
   email: string;
-  ic: string;
+  icNumber: string;
   phone: string;
   addOns: AddOnsData;
-  price: number;
+  totalPrice: number;
   totalNights: number;
 }
 
