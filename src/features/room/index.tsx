@@ -1,5 +1,10 @@
 import { useEffect } from "react";
-import { setHeaderTitle, setCurrentStep, setData } from "./roomSlice";
+import {
+  setHeaderTitle,
+  setCurrentStep,
+  setData,
+  setRoomTypeOpt,
+} from "./roomSlice";
 import { useAppDispatch, useAppSelector } from "../../store/hooks";
 import RoomSection from "./components/RoomSection";
 import BookingSection from "./components/BookingSection";
@@ -8,6 +13,12 @@ import "./room.css";
 function Room() {
   const dispatch = useAppDispatch();
   const headerTitle = useAppSelector((state) => state.room.headerTitle);
+  const options = [
+    { value: "all", label: "All Categories" },
+    { value: "presidential", label: "Presidential Suite" },
+    { value: "deluxe", label: "Deluxe Room" },
+    { value: "standard", label: "Standard Room" },
+  ];
   const data = [
     {
       id: "382nRb",
@@ -77,6 +88,7 @@ function Room() {
     window.scrollTo(0, 0);
     dispatch(setHeaderTitle("Room"));
     dispatch(setCurrentStep("Booking Details"));
+    dispatch(setRoomTypeOpt(options));
     dispatch(setData(data));
   }, []);
 

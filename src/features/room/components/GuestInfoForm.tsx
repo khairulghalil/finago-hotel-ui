@@ -10,7 +10,7 @@ function GuestInfoForm({}: GuestInfoFormProps) {
 
   const formValidation = () => {
     let errMessage = "";
-    // TODO : uncomment this for validation
+    // TODO : uncomment this
     // if (!toBook.name || !toBook.email || !toBook.icNumber || !toBook.phone) {
     //   errMessage = "Please fill in all the required fields.";
     // } else if (!/\S+@\S+\.\S+/.test(toBook.email)) {
@@ -24,6 +24,8 @@ function GuestInfoForm({}: GuestInfoFormProps) {
     // } else {
     //   dispatch(setCurrentStep("Add-ons"));
     // }
+
+    // TODO : remove this
     dispatch(setCurrentStep("Add-ons"));
 
     if (errMessage) {

@@ -17,12 +17,7 @@ function RoomSection({}: RoomSectionProps) {
   const stayPeriod = useAppSelector((state) => state.room.stayPeriod);
   const [showCalendar, setShowCalendar] = useState(false);
   const calendarRef = useRef<HTMLDivElement>(null);
-  const options = [
-    { value: "all", label: "All Categories" },
-    { value: "presidential", label: "Presidential Suite" },
-    { value: "deluxe", label: "Deluxe Room" },
-    { value: "standard", label: "Standard Room" },
-  ];
+  const options = useAppSelector((state) => state.room.roomTypeOpt);
 
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {

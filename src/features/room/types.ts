@@ -35,3 +35,8 @@ export interface StayPeriod {
   endDate: string;
   key: string;
 }
+
+export interface RoomTypeOpt {
+  value: string;
+  label: string;
+}
