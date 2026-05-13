@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { useState, useRef, useEffect } from "react";
 import { DateRange } from "react-date-range";
 import { format } from "date-fns";
-import { setStayPeriod } from "../roomSlice";
+import { setStayPeriod, setRoomTypeSelected } from "../roomSlice";
 import { useAppDispatch, useAppSelector } from "../../../store/hooks";
 import "react-date-range/dist/styles.css";
 import "react-date-range/dist/theme/default.css";
@@ -18,6 +18,9 @@ function RoomSection({}: RoomSectionProps) {
   const [showCalendar, setShowCalendar] = useState(false);
   const calendarRef = useRef<HTMLDivElement>(null);
   const options = useAppSelector((state) => state.room.roomTypeOpt);
+  const roomTypeSelected = useAppSelector(
+    (state) => state.room.roomTypeSelected,
+  );
 
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
@@ -108,6 +111,15 @@ function RoomSection({}: RoomSectionProps) {
             <Select
               options={options}
               placeholder="Select category"
+              value={options.find(
+                (option) => option.value === roomTypeSelected,
+              )}
+              onChange={(selectedOption) => {
+                console.log("Selected option:", selectedOption);
+                if (selectedOption) {
+                  dispatch(setRoomTypeSelected(selectedOption.value));
+                }
+              }}
               styles={{
                 control: (base, state) => ({
                   ...base,

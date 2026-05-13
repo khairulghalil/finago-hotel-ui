@@ -14,6 +14,7 @@ interface RoomState {
   toBook: ToBookRoomData;
   stayPeriod: StayPeriod[];
   roomTypeOpt: RoomTypeOpt[];
+  roomTypeSelected: string;
 }
 
 const initialState: RoomState = {
@@ -33,6 +34,7 @@ const initialState: RoomState = {
     },
   ],
   roomTypeOpt: [],
+  roomTypeSelected: "all",
 };
 
 const roomSlice = createSlice({
@@ -57,6 +59,9 @@ const roomSlice = createSlice({
     setRoomTypeOpt: (state, action: PayloadAction<RoomTypeOpt[]>) => {
       state.roomTypeOpt = action.payload;
     },
+    setRoomTypeSelected: (state, action: PayloadAction<string>) => {
+      state.roomTypeSelected = action.payload;
+    },
   },
 });
 
@@ -67,5 +72,6 @@ export const {
   setToBook,
   setStayPeriod,
   setRoomTypeOpt,
+  setRoomTypeSelected,
 } = roomSlice.actions;
 export default roomSlice.reducer;

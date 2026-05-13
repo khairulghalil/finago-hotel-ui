@@ -40,3 +40,8 @@ export interface RoomTypeOpt {
   value: string;
   label: string;
 }
+
+export interface ApiResponse<T> {
+  error: null | string;
+  results: T;
+}

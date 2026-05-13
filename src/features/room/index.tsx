@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
 import {
   setHeaderTitle,
   setCurrentStep,
@@ -9,16 +9,22 @@ import { useAppDispatch, useAppSelector } from "../../store/hooks";
 import RoomSection from "./components/RoomSection";
 import BookingSection from "./components/BookingSection";
 import "./room.css";
+import { roomApi } from "../../api/roomService";
 
 function Room() {
   const dispatch = useAppDispatch();
   const headerTitle = useAppSelector((state) => state.room.headerTitle);
-  const options = [
-    { value: "all", label: "All Categories" },
-    { value: "presidential", label: "Presidential Suite" },
-    { value: "deluxe", label: "Deluxe Room" },
-    { value: "standard", label: "Standard Room" },
-  ];
+  const initialized = useRef(false);
+
+  const fetchRooms = async () => {
+    try {
+      const roomTypeOptions = await roomApi.getRoomTypeOpt();
+      return roomTypeOptions;
+    } catch (error) {
+      return [];
+    }
+  };
+
   const data = [
     {
       id: "382nRb",
@@ -85,11 +91,18 @@ function Room() {
   ];
 
   useEffect(() => {
-    window.scrollTo(0, 0);
-    dispatch(setHeaderTitle("Room"));
-    dispatch(setCurrentStep("Booking Details"));
-    dispatch(setRoomTypeOpt(options));
-    dispatch(setData(data));
+    if (initialized.current) return;
+    initialized.current = true;
+
+    const initialize = async () => {
+      window.scrollTo(0, 0);
+      dispatch(setHeaderTitle("Room"));
+      dispatch(setCurrentStep("Booking Details"));
+      const roomTypeOptions = await fetchRooms();
+      dispatch(setRoomTypeOpt(roomTypeOptions));
+      dispatch(setData(data));
+    };
+    initialize();
   }, []);
 
   return (
