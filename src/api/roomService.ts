@@ -19,17 +19,17 @@ export const roomApi = {
     checkInDate: string;
     checkOutDate: string;
   }) => {
-    const response = await axiosInstance.post<{
+    const response = await axiosInstance.get<{
       data: RoomData[];
-    }>("/room/getAvailableRoom", params);
+    }>(`/room/getAvailableRoom`, { params: params });
 
     return response.data.data;
   },
 
   getBookedDate: async (params: { roomId: string }) => {
-    const response = await axiosInstance.post<{
+    const response = await axiosInstance.get<{
       data: string[];
-    }>("/book/getBookedDate", params);
+    }>(`/book/getBookedDate/${params.roomId}`);
 
     return response.data.data;
   },
