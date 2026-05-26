@@ -9,7 +9,7 @@ function Footer({}: FooterProps) {
             <div className="col-4 d-flex flex-column align-items-start justify-content-center">
               <div className="d-flex">
                 <img
-                  src="./src/assets/img/logo.png"
+                  src="/img/logo.png"
                   className="me-2 img-fluid"
                   alt="Logo"
                 />

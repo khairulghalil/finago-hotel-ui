@@ -40,7 +40,7 @@ function Overview({}: OverviewProps) {
             className="col-6 d-flex align-items-center justify-content-center m-auto"
           >
             <img
-              src="./src/assets/img/overview.png"
+              src="/img/overview.png"
               alt="Overview"
               className="img-fluid rounded-4"
             />

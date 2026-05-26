@@ -58,7 +58,7 @@ function AvailableRoomCard({
         <div className="card text-start mb-5">
           <div className="card-body p-0">
             <img
-              src={`./src/assets/img/${img}`}
+              src={`/img/${img}`}
               alt={roomType}
               className="img-fluid card-img-top"
             />

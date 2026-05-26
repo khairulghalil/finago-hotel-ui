@@ -57,7 +57,7 @@ function About({}: AboutProps) {
             </div>
             <div className="col-6 d-flex align-items-center justify-content-center m-auto">
               <img
-                src="./src/assets/img/about.png"
+                src="/img/about.png"
                 alt="About Us"
                 className="img-fluid rounded-4"
               />

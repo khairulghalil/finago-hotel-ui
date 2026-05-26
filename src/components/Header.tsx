@@ -75,7 +75,7 @@ function Header({}: HeaderProps) {
 
             <div className="collapse navbar-collapse" id="mainNavbar">
               <img
-                src="./src/assets/img/logo.png"
+                src="/img/logo.png"
                 className="me-2 img-fluid"
                 alt="Logo"
               />

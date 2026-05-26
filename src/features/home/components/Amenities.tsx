@@ -22,7 +22,7 @@ function Amenities({}: AmenitiesProps) {
             <div className="card text-start mb-5">
               <div className="card-body p-0">
                 <img
-                  src="./src/assets/img/wifi.png"
+                  src="/img/wifi.png"
                   alt="High-Speed Internet"
                   className="img-fluid card-img-top"
                 />
@@ -49,7 +49,7 @@ function Amenities({}: AmenitiesProps) {
             <div className="card text-start mb-5">
               <div className="card-body p-0">
                 <img
-                  src="./src/assets/img/rooftop.png"
+                  src="/img/rooftop.png"
                   alt="Rooftop Pool"
                   className="card-img-top"
                 />
@@ -74,7 +74,7 @@ function Amenities({}: AmenitiesProps) {
             <div className="card text-start mb-5">
               <div className="card-body p-0">
                 <img
-                  src="./src/assets/img/valet.png"
+                  src="/img/valet.png"
                   alt="Valet Parking"
                   className="card-img-top"
                 />
@@ -99,7 +99,7 @@ function Amenities({}: AmenitiesProps) {
             <div className="card text-start mb-5">
               <div className="card-body p-0">
                 <img
-                  src="./src/assets/img/fitness.png"
+                  src="/img/fitness.png"
                   alt="Modern Fitness Center"
                   className="card-img-top"
                 />
@@ -126,7 +126,7 @@ function Amenities({}: AmenitiesProps) {
             <div className="card text-start mb-5">
               <div className="card-body p-0">
                 <img
-                  src="./src/assets/img/restaurant.png"
+                  src="/img/restaurant.png"
                   alt="Signature Restaurant"
                   className="card-img-top"
                 />
@@ -153,7 +153,7 @@ function Amenities({}: AmenitiesProps) {
             <div className="card text-start mb-5">
               <div className="card-body p-0">
                 <img
-                  src="./src/assets/img/spa.png"
+                  src="/img/spa.png"
                   alt="Luxury Spa"
                   className="card-img-top"
                 />

@@ -41,7 +41,7 @@ function Contact({}: ContactProps) {
             </div>
             <div className="col-6 d-flex align-items-center justify-content-center m-auto pe-0">
               <img
-                src="./src/assets/img/contact.png"
+                src="/img/contact.png"
                 alt="Contact"
                 className="img-fluid rounded-4"
               />
