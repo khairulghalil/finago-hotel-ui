@@ -14,7 +14,7 @@ function Overview({}: OverviewProps) {
             data-aos="fade-up"
             className="col-6 align-items-center justify-content-center m-auto px-5 ow-left"
           >
-            <h1 className="fw-boldest">Luxury Redefined in Every Stay</h1>
+            <h1 className="fw-boldest">Luxury rRedefined in Every Stay</h1>
             <p className="mt-4">
               Experience unparalleled comfort and sophistication at our premium
               hotel. From elegant suites to world-class amenities, every moment
