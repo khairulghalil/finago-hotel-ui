@@ -29,6 +29,8 @@ jobs:
 
       - name: Build project
         run: npm run build
+        env:
+          VITE_BACKEND_URL: ${{ secrets.VITE_BACKEND_URL }}
 
       - name: Configure AWS credentials
         uses: aws-actions/configure-aws-credentials@v4
@@ -46,9 +48,6 @@ jobs:
           aws cloudfront create-invalidation \
             --distribution-id ${{ secrets.AWS_CLOUDFRONT_DISTRIBUTION_ID }} \
             --paths "/*"
-
-      - name: Deployment successful
-        run: echo "🚀 Deployment completed successfully!"
 
       - name: Deployment successful
         run: echo "🚀 Deployment completed successfully!"
