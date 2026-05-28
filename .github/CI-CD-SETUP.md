@@ -38,6 +38,7 @@ Make sure you have added the following secrets in your GitHub repository:
 Your AWS IAM user needs the following permissions:
 
 ### For S3:
+
 ```json
 {
   "Version": "2012-10-17",
@@ -60,15 +61,14 @@ Your AWS IAM user needs the following permissions:
 ```
 
 ### For CloudFront (if using):
+
 ```json
 {
   "Version": "2012-10-17",
   "Statement": [
     {
       "Effect": "Allow",
-      "Action": [
-        "cloudfront:CreateInvalidation"
-      ],
+      "Action": ["cloudfront:CreateInvalidation"],
       "Resource": "arn:aws:cloudfront::*:distribution/*"
     }
   ]
@@ -78,12 +78,14 @@ Your AWS IAM user needs the following permissions:
 ## S3 Bucket Configuration
 
 ### Enable Static Website Hosting:
+
 1. Go to your S3 bucket → Properties → Static website hosting
 2. Enable it and set:
    - Index document: `index.html`
    - Error document: `index.html` (for client-side routing)
 
 ### Bucket Policy (for public access):
+
 ```json
 {
   "Version": "2012-10-17",
@@ -102,7 +104,7 @@ Your AWS IAM user needs the following permissions:
 ## How the Workflow Works
 
 1. **Trigger**: Runs on push to `main` or `master` branch, and on pull requests
-2. **Build**: 
+2. **Build**:
    - Checks out code
    - Sets up Node.js 18
    - Installs dependencies using `npm ci`
@@ -129,6 +131,7 @@ Your AWS IAM user needs the following permissions:
 ## Manual Deployment
 
 To deploy manually from your local machine:
+
 ```bash
 # Build the project
 npm run build
