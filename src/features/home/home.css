@@ -26,6 +26,27 @@
   font-size: 40px;
   color: var(--primary-color) !important;
 }
+@media (max-width: 767.98px) {
+  .overview .ow-left {
+    padding: 0px !important;
+  }
+  .overview h1 {
+    font-size: 20px !important;
+    text-align: center;
+    padding-bottom: 20px;
+  }
+  .overview p {
+    padding-top: 30px !important;
+    padding-bottom: 40px !important;
+    text-align: center !important;
+  }
+  .overview {
+    background-image: url("img/overview-bg.png") !important;
+    background-size: cover !important;
+    background-position: center !important;
+    height: 100vh !important;
+  }
+}
 
 /* ABOUT */
 .about {
@@ -53,6 +74,15 @@
 }
 .about .about-left {
   padding: 0px 80px 0px 10px !important;
+}
+@media (max-width: 767.98px) {
+  .about .about-left {
+    padding: 0px !important;
+  }
+
+  .btn {
+    width: 100% !important;
+  }
 }
 
 /* AMENITIES CSS */

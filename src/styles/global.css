@@ -19,7 +19,7 @@ body {
 }
 html {
   scroll-behavior: smooth;
-  scroll-padding-top: 70px;
+  scroll-padding-top: 47px;
 }
 
 /* ----------- */
@@ -70,6 +70,18 @@ header .navbar .nav-item .active,
 header .navbar .nav-item .active:hover {
   color: white !important;
   font-weight: 600;
+}
+
+@media (max-width: 767.98px) {
+  header .navbar .nav-link {
+    color: var(--primary-font-color) !important;
+    font-weight: 500;
+    margin: 0px 40px;
+    text-align: left;
+    cursor: pointer !important;
+    position: relative;
+    transition: color 0.3s ease;
+  }
 }
 
 .btn-primary {

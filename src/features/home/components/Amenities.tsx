@@ -18,7 +18,7 @@ function Amenities({}: AmenitiesProps) {
           </p>
         </div>
         <div className="row">
-          <div className="col-4 px-4">
+          <div className="col-lg-4 px-4">
             <div className="card text-start mb-5">
               <div className="card-body p-0">
                 <img
@@ -45,7 +45,7 @@ function Amenities({}: AmenitiesProps) {
               </div>
             </div>
           </div>
-          <div className="col-4 px-4">
+          <div className="col-lg-4 px-4">
             <div className="card text-start mb-5">
               <div className="card-body p-0">
                 <img
@@ -70,7 +70,7 @@ function Amenities({}: AmenitiesProps) {
               </div>
             </div>
           </div>
-          <div className="col-4 px-4">
+          <div className="col-lg-4 px-4">
             <div className="card text-start mb-5">
               <div className="card-body p-0">
                 <img
@@ -95,7 +95,7 @@ function Amenities({}: AmenitiesProps) {
               </div>
             </div>
           </div>
-          <div className="col-4 px-4">
+          <div className="col-lg-4 px-4">
             <div className="card text-start mb-5">
               <div className="card-body p-0">
                 <img
@@ -122,7 +122,7 @@ function Amenities({}: AmenitiesProps) {
               </div>
             </div>
           </div>
-          <div className="col-4 px-4">
+          <div className="col-lg-4 px-4">
             <div className="card text-start mb-5">
               <div className="card-body p-0">
                 <img
@@ -149,7 +149,7 @@ function Amenities({}: AmenitiesProps) {
               </div>
             </div>
           </div>
-          <div className="col-4 px-4">
+          <div className="col-lg-4 px-4">
             <div className="card text-start mb-5">
               <div className="card-body p-0">
                 <img

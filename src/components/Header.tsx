@@ -62,7 +62,8 @@ function Header({}: HeaderProps) {
         <nav className="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
           <div className="container-fluid px-0 mx-lg-5">
             <button
-              className="navbar-toggler shadow-none"
+              className="navbar-toggler shadow-none 
+              ms-3"
               type="button"
               data-bs-toggle="collapse"
               data-bs-target="#mainNavbar"
@@ -76,7 +77,7 @@ function Header({}: HeaderProps) {
             <div className="collapse navbar-collapse" id="mainNavbar">
               <img
                 src="/img/logo.png"
-                className="me-2 img-fluid"
+                className="me-2 img-fluid d-none d-lg-block"
                 alt="Logo"
               />
               <ul className="navbar-nav ms-auto mb-2 mb-lg-0 mt-2 mt-lg-0">

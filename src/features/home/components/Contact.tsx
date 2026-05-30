@@ -14,7 +14,7 @@ function Contact({}: ContactProps) {
           className="container mt-5 mb-5"
         >
           <div className="row p-1">
-            <div className="col-6 align-items-center justify-content-center m-auto p-5 ps-0">
+            <div className="col-lg-6 align-items-center justify-content-center m-auto p-3 p-lg-5 ps-lg-0">
               <h1 className="fw-boldest mb-3">Contact Us</h1>
               <span className="text-muted">
                 Our dedicated concierge team is available 24/7 to ensure your
@@ -39,7 +39,7 @@ function Contact({}: ContactProps) {
                 24/7 Customer Support
               </p>
             </div>
-            <div className="col-6 d-flex align-items-center justify-content-center m-auto pe-0">
+            <div className="col-lg-6 d-flex align-items-center justify-content-center m-auto pe-0 d-none d-lg-block">
               <img
                 src="/img/contact.png"
                 alt="Contact"
