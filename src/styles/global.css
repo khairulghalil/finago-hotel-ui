@@ -269,3 +269,16 @@ header .navbar .nav-item .active:hover {
 .rdp-day.rdp-selected button {
   border: 0px solid var(--primary-color) !important;
 }
+
+.login-btn {
+  background-color: transparent !important;
+  color: white !important;
+  border: 1px solid white !important;
+  padding: 8px 0px !important;
+  font-size: 18px;
+  width: 100px !important;
+  border-radius: 50px !important;
+}
+#loginModal .modal-dialog {
+  min-width: 1000px !important;
+}

@@ -1,0 +1,60 @@
+.login .content {
+  background: linear-gradient(to bottom, #3f1a46, #ab46bc) !important;
+  border-radius: 10px !important;
+  max-width: 1100px !important;
+  /* height: 400px !important; */
+}
+.login h3 {
+  color: white !important;
+  font-size: 37px;
+  font-weight: 600;
+  margin-bottom: 40px !important;
+}
+input[type="email"],
+input[type="password"],
+input[type="checkbox"] {
+  background-color: #00000047 !important;
+  color: white !important;
+  border: none !important;
+  padding: 10px 15px !important;
+}
+input::placeholder {
+  color: white !important;
+}
+#rememberMe {
+  padding: 10px !important;
+}
+.form-check {
+  margin-top: 29px !important;
+}
+.btn-login {
+  background-color: transparent !important;
+  color: white !important;
+  border: 1px solid white !important;
+  padding: 8px 0px !important;
+  font-size: 18px;
+  width: 180px !important;
+  border-radius: 50px !important;
+}
+.btn-google {
+  background-color: white !important;
+  color: black !important;
+  padding: 8px 0px !important;
+  font-size: 18px;
+  border-radius: 50px !important;
+}
+.btn-signup {
+  background-color: transparent !important;
+  color: white !important;
+  padding: 8px 0px !important;
+  font-size: 18px;
+  border-radius: 50px !important;
+  border: 1px solid rgb(48, 48, 48) !important;
+}
+p.text-grey {
+  color: rgb(202, 202, 202) !important;
+  font-size: 15px;
+}
+.login .img-logo {
+  width: 60% !important;
+}

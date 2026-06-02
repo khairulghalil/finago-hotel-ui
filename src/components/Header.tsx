@@ -121,6 +121,15 @@ function Header({}: HeaderProps) {
                     Contact
                   </span>
                 </li>
+                <li className="nav-item">
+                  <span
+                    className="btn btn-primary login-btn"
+                    data-bs-toggle="modal"
+                    data-bs-target="#loginModal"
+                  >
+                    Sign In
+                  </span>
+                </li>
               </ul>
             </div>
           </div>

@@ -12,3 +12,10 @@
 .read-the-docs {
   color: #888;
 } */
+
+.form-control:focus,
+.form-check-input:focus {
+  border-color: none; /* Set this to your preferred default border color */
+  outline: 0;
+  box-shadow: none;
+}

@@ -7,6 +7,7 @@ import Header from "./components/Header";
 import Footer from "./components/Footer";
 import Home from "./features/home";
 import Room from "./features/room";
+import Login from "./features/login";
 import "./styles/global.css";
 
 function App() {
@@ -29,6 +30,7 @@ function App() {
           <Route path="/room" element={<Room />} />
         </Routes>
         <Footer />
+        <Login />
       </BrowserRouter>
     </>
   );
