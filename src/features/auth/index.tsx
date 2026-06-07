@@ -1,8 +1,44 @@
-import "./login.css";
+import "./auth.css";
+import { useState } from "react";
+import { authApi } from "../../api/authService";
+import toast, { Toaster } from "react-hot-toast";
+import { createUser } from "../../AppSlice";
+import { useAppDispatch } from "../../store/hooks";
+import { setUser } from "../../utils/auth";
 
 function Login() {
+  const defaultSignInParams = { email: "", password: "", rememberMe: false };
+  const [signInParams, setSignInParams] = useState(defaultSignInParams);
+  const dispatch = useAppDispatch();
+
+  const signIn = async () => {
+    try {
+      const res = await authApi.signIn(signInParams);
+      const user = res.data;
+
+      dispatch(createUser(user));
+      setUser(user);
+
+      const modalElement = document.getElementById("loginModal");
+      if (modalElement) {
+        const modalInstance = (window as any).bootstrap.Modal.getInstance(
+          modalElement,
+        );
+        modalInstance?.hide();
+      }
+      return res;
+    } catch (error) {
+      setSignInParams(defaultSignInParams);
+      toast.error("Invalid credentials. Please try again.", {
+        className: "toast-error",
+      });
+      return [];
+    }
+  };
+
   return (
     <>
+      <Toaster />
       <div className="modal fade" id="loginModal" aria-hidden="true">
         <div className="modal-dialog modal-dialog-centered">
           <div className="modal-content">
@@ -31,6 +67,13 @@ function Login() {
                     autoComplete="email"
                     className="form-control"
                     placeholder="Email Address"
+                    value={signInParams.email}
+                    onChange={(e) =>
+                      setSignInParams({
+                        ...signInParams,
+                        email: e.target.value,
+                      })
+                    }
                   />
                   <input
                     type="password"
@@ -38,6 +81,13 @@ function Login() {
                     autoComplete="current-password"
                     className="form-control mt-3"
                     placeholder="Password"
+                    value={signInParams.password}
+                    onChange={(e) =>
+                      setSignInParams({
+                        ...signInParams,
+                        password: e.target.value,
+                      })
+                    }
                   />
                   <div className="row">
                     <div className="col-6">
@@ -46,6 +96,13 @@ function Login() {
                           type="checkbox"
                           className="form-check-input"
                           id="rememberMe"
+                          checked={signInParams.rememberMe}
+                          onChange={(e) =>
+                            setSignInParams({
+                              ...signInParams,
+                              rememberMe: e.target.checked,
+                            })
+                          }
                         />
                         <label
                           className="form-check-label text-white ms-1"
@@ -56,7 +113,10 @@ function Login() {
                       </div>
                     </div>
                     <div className="col-6 text-end">
-                      <button className="btn btn-login mt-4 px-5">
+                      <button
+                        className="btn btn-login mt-4 px-5"
+                        onClick={signIn}
+                      >
                         Sign In
                       </button>
                     </div>

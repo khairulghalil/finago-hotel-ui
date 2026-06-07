@@ -282,3 +282,9 @@ header .navbar .nav-item .active:hover {
 #loginModal .modal-dialog {
   min-width: 1000px !important;
 }
+
+.toast-error {
+  border-radius: 15px !important;
+  background: #333 !important;
+  color: #fff !important;
+}

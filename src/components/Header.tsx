@@ -1,9 +1,14 @@
 import { useState, useEffect } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
+import { useAppSelector } from "../store/hooks";
+import { isTokenExpired, getUser, setUser, removeUser } from "../utils/auth";
+import { authApi } from "../api/authService";
 
 interface HeaderProps {}
 
 function Header({}: HeaderProps) {
+  const user = useAppSelector((state) => state.app.user);
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [activeSection, setActiveSection] = useState("home");
   const navigate = useNavigate();
   const location = useLocation();
@@ -28,6 +33,18 @@ function Header({}: HeaderProps) {
   };
 
   useEffect(() => {
+    const tokenRefresh = async () => {
+      try {
+        await authApi.me();
+        setIsLoggedIn(true);
+      } catch (error) {
+        setIsLoggedIn(false);
+      }
+    };
+
+    const tokenExpired = isTokenExpired();
+    tokenExpired ? tokenRefresh() : setIsLoggedIn(true);
+
     const handleScroll = () => {
       const sections = document.querySelectorAll("section[id]");
       const scrollPosition = window.scrollY + 100;
@@ -46,7 +63,6 @@ function Header({}: HeaderProps) {
       });
     };
 
-    // Only enable scroll spy on home page
     if (location.pathname === "/") {
       window.addEventListener("scroll", handleScroll);
       handleScroll();
@@ -55,6 +71,14 @@ function Header({}: HeaderProps) {
       setActiveSection("room");
     }
   }, [location.pathname]);
+
+  useEffect(() => {
+    const savedUser = getUser();
+    if (savedUser) {
+      const tokenExpired = isTokenExpired();
+      tokenExpired ? setIsLoggedIn(false) : setIsLoggedIn(true);
+    }
+  }, [user]);
 
   return (
     <>
@@ -121,15 +145,28 @@ function Header({}: HeaderProps) {
                     Contact
                   </span>
                 </li>
-                <li className="nav-item">
-                  <span
-                    className="btn btn-primary login-btn"
-                    data-bs-toggle="modal"
-                    data-bs-target="#loginModal"
-                  >
-                    Sign In
-                  </span>
-                </li>
+                {isLoggedIn ? (
+                  <li className="nav-item">
+                    <span
+                      className={`nav-link ${activeSection === "contact" ? "active" : ""}`}
+                      onClick={() => {
+                        removeUser();
+                      }}
+                    >
+                      Sign Out
+                    </span>
+                  </li>
+                ) : (
+                  <li className="nav-item">
+                    <span
+                      className="btn btn-primary login-btn"
+                      data-bs-toggle="modal"
+                      data-bs-target="#loginModal"
+                    >
+                      Sign In
+                    </span>
+                  </li>
+                )}
               </ul>
             </div>
           </div>

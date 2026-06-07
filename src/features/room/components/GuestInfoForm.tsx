@@ -25,15 +25,9 @@ function GuestInfoForm({}: GuestInfoFormProps) {
       dispatch(setCurrentStep("Add-ons"));
     }
 
-    // dispatch(setCurrentStep("Add-ons"));
-
     if (errMessage) {
       toast.error(errMessage, {
-        style: {
-          borderRadius: "15px",
-          background: "#333",
-          color: "#fff",
-        },
+        className: "toast-error",
       });
     }
   };

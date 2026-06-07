@@ -45,17 +45,12 @@ function Room() {
   };
 
   useEffect(() => {
-    if (initialized.current) return;
-    initialized.current = true;
-
     const initialize = async () => {
       window.scrollTo(0, 0);
       dispatch(setHeaderTitle("Room"));
       dispatch(setCurrentStep("Booking Details"));
       const roomTypeOptions = await getRoomTypeOpt();
       dispatch(setRoomTypeOpt(roomTypeOptions));
-      const availableRooms = await getAvailableRoom();
-      dispatch(setData(availableRooms));
     };
     initialize();
   }, []);

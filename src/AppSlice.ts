@@ -1,27 +1,22 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
 interface AppState {
-  headerShown: boolean;
-  footerShown: boolean;
+  user: {};
 }
 
 const initialState: AppState = {
-  headerShown: true,
-  footerShown: true,
+  user: {},
 };
 
 const appSlice = createSlice({
   name: "app",
   initialState,
   reducers: {
-    setHeaderShown: (state, action: PayloadAction<boolean>) => {
-      state.headerShown = action.payload;
-    },
-    setFooterShown: (state, action: PayloadAction<boolean>) => {
-      state.footerShown = action.payload;
+    createUser: (state, action: PayloadAction<{}>) => {
+      state.user = action.payload;
     },
   },
 });
 
-export const { setHeaderShown, setFooterShown } = appSlice.actions;
+export const { createUser } = appSlice.actions;
 export default appSlice.reducer;

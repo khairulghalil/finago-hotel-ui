@@ -115,7 +115,6 @@ function RoomSection({}: RoomSectionProps) {
                 (option) => option.value === roomTypeSelected,
               )}
               onChange={(selectedOption) => {
-                console.log("Selected option:", selectedOption);
                 if (selectedOption) {
                   dispatch(setRoomTypeSelected(selectedOption.value));
                 }
