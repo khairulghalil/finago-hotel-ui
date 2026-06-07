@@ -1,4 +1,4 @@
-import { useEffect, useRef } from "react";
+import { useEffect } from "react";
 import { format } from "date-fns";
 import {
   setHeaderTitle,
@@ -19,7 +19,6 @@ function Room() {
     (state) => state.room.roomTypeSelected,
   );
   const stayPeriod = useAppSelector((state) => state.room.stayPeriod);
-  const initialized = useRef(false);
 
   const getRoomTypeOpt = async () => {
     try {
