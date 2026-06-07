@@ -15,6 +15,8 @@ import { roomApi } from "../../api/roomService";
 function Room() {
   const dispatch = useAppDispatch();
   const headerTitle = useAppSelector((state) => state.room.headerTitle);
+  const user = useAppSelector((state) => state.app.user as Record<string, any>);
+  // const accessToken = user?.accessToken || "";
   const roomTypeSelected = useAppSelector(
     (state) => state.room.roomTypeSelected,
   );
@@ -52,7 +54,7 @@ function Room() {
       dispatch(setRoomTypeOpt(roomTypeOptions));
     };
     initialize();
-  }, []);
+  }, [user]);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -60,7 +62,7 @@ function Room() {
       dispatch(setData(availableRooms));
     };
     fetchData();
-  }, [roomTypeSelected, stayPeriod]);
+  }, [roomTypeSelected, stayPeriod, user]);
 
   return (
     <>

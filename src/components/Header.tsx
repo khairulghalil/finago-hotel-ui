@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 import { useAppSelector } from "../store/hooks";
-import { isTokenExpired, getUser, setUser, removeUser } from "../utils/auth";
+import { isTokenExpired, getUser, removeUser } from "../utils/auth";
 import { authApi } from "../api/authService";
 
 interface HeaderProps {}

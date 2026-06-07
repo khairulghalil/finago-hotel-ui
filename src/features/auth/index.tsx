@@ -2,21 +2,17 @@ import "./auth.css";
 import { useState } from "react";
 import { authApi } from "../../api/authService";
 import toast, { Toaster } from "react-hot-toast";
-import { createUser } from "../../AppSlice";
-import { useAppDispatch } from "../../store/hooks";
 import { setUser } from "../../utils/auth";
 
 function Login() {
   const defaultSignInParams = { email: "", password: "", rememberMe: false };
   const [signInParams, setSignInParams] = useState(defaultSignInParams);
-  const dispatch = useAppDispatch();
 
   const signIn = async () => {
     try {
       const res = await authApi.signIn(signInParams);
       const user = res.data;
 
-      dispatch(createUser(user));
       setUser(user);
 
       const modalElement = document.getElementById("loginModal");
